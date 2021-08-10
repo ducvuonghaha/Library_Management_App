@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/menu_management" android:checkableBehavior="single">
+        <item
+            android:id="@+id/card_management"
+            android:title="Quản lý phiếu mượn"
+            android:icon="@drawable/ic_baseline_home_24"/>
+
+        <item
+            android:id="@+id/category_management"
+            android:title="Quản lý loại sách"
+            android:icon="@drawable/ic_baseline_collections_bookmark_24"/>
+
+        <item
+            android:id="@+id/book_management"
+            android:title="Quản lý sách"
+            android:icon="@drawable/ic_baseline_menu_book_24"/>
+
+        <item
+            android:id="@+id/member_management"
+            android:title="Quản lý thành viên"
+            android:icon="@drawable/ic_baseline_person_24"/>
+    </group>
+
+
+    <group android:id="@+id/menu_statistical">
+        <item android:title="Thống kê">
+            <menu>
+                <item
+                    android:id="@+id/top_book"
+                    android:title="Top 10 sách mượn nhiều nhất"
+                    android:icon="@drawable/ic_baseline_book_24"/>
+                <item
+                    android:id="@+id/revenue"
+                    android:title="Doanh số"
+                    android:icon="@drawable/ic_baseline_attach_money_24"/>
+            </menu>
+        </item>
+    </group>
+
+    <group android:id="@+id/menu_user">
+        <item android:title="Người dùng">
+            <menu>
+                <item
+                    android:id="@+id/add_user"
+                    android:title="Thêm người dùng"
+                    android:icon="@drawable/ic_baseline_person_add_alt_1_24"/>
+                <item
+                    android:id="@+id/change_password"
+                    android:title="Đổi mật khẩu"
+                    android:icon="@drawable/ic_baseline_edit_24"/>
+                <item
+                    android:id="@+id/log_out"
+                    android:title="Đăng xuất"
+                    android:icon="@drawable/ic_baseline_login_24"/>
+            </menu>
+        </item>
+    </group>
+
+</menu>

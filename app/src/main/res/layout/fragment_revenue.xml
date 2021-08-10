@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_marginVertical="20dp"
+    android:layout_marginHorizontal="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnGetStartDate"
+            android:layout_weight="1"
+            android:text="Từ ngày"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <EditText
+            android:hint="dd-MM-yyyy"
+            android:inputType="date"
+            android:id="@+id/edtStartDate"
+            android:layout_weight="2"
+            android:layout_marginLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnGetEndDate"
+            android:layout_weight="1"
+            android:text="Đến ngày"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <EditText
+            android:hint="dd-MM-yyyy"
+            android:inputType="date"
+            android:id="@+id/edtEndDate"
+            android:layout_weight="2"
+            android:layout_marginLeft="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnGetTotal"
+        android:layout_marginTop="10dp"
+        android:text="Doanh thu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:text="Tổng doanh thu: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_marginLeft="5dp"
+            android:textColor="#9A0404"
+            android:textSize="18dp"
+            android:text="Tổng doanh thu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:textColor="#9A0404"
+            android:textSize="18dp"
+            android:text="VND"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

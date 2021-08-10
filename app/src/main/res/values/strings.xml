@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DU_AN_MAU</string>
+    <string name="nav_open">Mở</string>
+    <string name="nav_close">Đóng</string>
+</resources>
