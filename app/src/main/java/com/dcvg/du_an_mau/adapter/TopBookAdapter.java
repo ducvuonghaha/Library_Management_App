@@ -2,6 +2,7 @@ package com.dcvg.du_an_mau.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dcvg.du_an_mau.R;
 import com.dcvg.du_an_mau.dao.BookDAO;
 import com.dcvg.du_an_mau.dao.CategoryDAO;
+import com.dcvg.du_an_mau.helper.Config;
 import com.dcvg.du_an_mau.model.Book;
 
 import org.jetbrains.annotations.NotNull;
@@ -54,7 +56,7 @@ public class TopBookAdapter extends RecyclerView.Adapter<TopBookAdapter.BookHold
         holder.tvIdBook.setText(holder.book.getBook_id());
         holder.tvNameBook.setText(holder.book.getBook_name());
         holder.tvCategoryBook.setText(categoryDAO.getNameCategoryById(holder.book.getCategory_id()));
-        holder.tvPriceBook.setText(String.valueOf(holder.book.getBook_price()));
+        holder.tvPriceBook.setText(Config.decimalFormat.format(holder.book.getBook_price()));
         holder.tvQuantityBorrows.setText(holder.book.getNumberOfBorrow());
     }
 

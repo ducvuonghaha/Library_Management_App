@@ -22,6 +22,7 @@ import com.dcvg.du_an_mau.R;
 import com.dcvg.du_an_mau.dao.BookDAO;
 import com.dcvg.du_an_mau.dao.CardDAO;
 import com.dcvg.du_an_mau.dao.MemberDAO;
+import com.dcvg.du_an_mau.helper.Config;
 import com.dcvg.du_an_mau.model.Card;
 
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
 
         String cardId = holder.card.getCard_id();
         String cardDate = holder.card.getCard_date();
-        String cardPrice = String.valueOf(holder.card.getPrice());
+        Double cardPrice = holder.card.getPrice();
         boolean[] return_book = {holder.card.isReturn_card()};
 
         String memberName = memberDAO.getNameMemberById(holder.card.getMember_id());
@@ -79,7 +80,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
         holder.edtIdBook.setText(holder.card.getBook_id());
         holder.edtIdBook.setText(bookName);
         holder.edtIdMember.setText(memberName);
-        holder.edtPriceCard.setText(String.valueOf(holder.card.getPrice()));
+        holder.edtPriceCard.setText(Config.decimalFormat.format(cardPrice));
         holder.edtStatusCard.setText(return_book[0] ? "Đã trả sách" : "Chưa trả sách");
         holder.edtDateCard.setText(holder.card.getCard_date());
 
@@ -131,7 +132,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         idBook[0] = String.valueOf(nameAndIdBooks.get(spBookId.getSelectedItemPosition())[0]);
-                        tvCardPrice.setText(bookDAO.getPriceBookById(idBook[0]));
+                        tvCardPrice.setText(Config.decimalFormat.format(Double.parseDouble(bookDAO.getPriceBookById(idBook[0]))));
                     }
 
                     @Override
@@ -142,7 +143,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
 
                 tvCardId.setText(cardId);
                 tvCardDate.setText(cardDate);
-                tvCardPrice.setText(cardPrice);
+                tvCardPrice.setText(Config.decimalFormat.format(cardPrice));
                 chkReturn.setChecked(return_book[0]);
 
                 chkReturn.setOnClickListener(new View.OnClickListener() {

@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dcvg.du_an_mau.R;
 import com.dcvg.du_an_mau.dao.BookDAO;
 import com.dcvg.du_an_mau.dao.CategoryDAO;
+import com.dcvg.du_an_mau.helper.Config;
 import com.dcvg.du_an_mau.model.Book;
 
 import org.jetbrains.annotations.NotNull;
@@ -60,7 +61,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookHolder> {
         holder.tvIdBook.setText(idBook);
         holder.tvNameBook.setText(nameBook);
         holder.tvCategoryBook.setText(categoryName);
-        holder.tvPriceBook.setText(priceBook);
+        holder.tvPriceBook.setText(Config.decimalFormat.format(holder.book.getBook_price()));
 
         List<Object[]> nameAndIdCategories = categoryDAO.getAllNameAndIdCategory();
         List<String> name_categories = new ArrayList<>();

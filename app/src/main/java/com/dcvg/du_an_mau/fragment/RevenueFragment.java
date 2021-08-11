@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.dcvg.du_an_mau.R;
 import com.dcvg.du_an_mau.dao.CardDAO;
+import com.dcvg.du_an_mau.helper.Config;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -101,20 +102,24 @@ public class RevenueFragment extends Fragment {
 
                 if (startDate.isEmpty()) {
                     Toast.makeText(getContext(), "Vui lòng điền thời gian bắt đàu", Toast.LENGTH_SHORT).show();
+                    tvTotal.setText("0");
                 } else if (endDate.isEmpty()) {
                     Toast.makeText(getContext(), "Vui lòng điền thời gian kết thúc", Toast.LENGTH_SHORT).show();
+                    tvTotal.setText("0");
                 } else {
                     try {
                         Date sd = dateFormat.parse(startDate);
                         Date ed = dateFormat.parse(endDate);
                         if (sd.after(ed)) {
                             Toast.makeText(getContext(), "Thời gian kết thúc phải sau thời gian bắt đầu", Toast.LENGTH_SHORT).show();
+                            tvTotal.setText("0");
                         } else {
-                            tvTotal.setText(String.valueOf(cardDAO.getTotalByTime(startDate, endDate)));
+                            tvTotal.setText(Config.decimalFormat.format(cardDAO.getTotalByTime(startDate, endDate)));
                         }
                     } catch (ParseException e) {
                         e.printStackTrace();
                         Toast.makeText(getContext(), "Thời gian không đúng định dạng", Toast.LENGTH_SHORT).show();
+                        tvTotal.setText("0");
                     }
                 }
             }

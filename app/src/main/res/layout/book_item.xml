@@ -42,12 +42,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <TextView
-            android:textColor="#780101"
-            android:id="@+id/tvPriceBook"
-            android:text="Tiền thuê"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="#780101"
+                android:id="@+id/tvPriceBook"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginLeft="3dp"
+                android:textColor="#780101"
+                android:text="VND"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvCategoryBook"
