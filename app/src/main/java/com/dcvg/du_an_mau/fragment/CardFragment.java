@@ -171,6 +171,8 @@ public class CardFragment extends Fragment {
                         String id_card = tvCardId.getText().toString().trim();
                         if(id_card.equals("")) {
                             Toast.makeText(getContext(), "Vui lòng điền mã phiếu mượn", Toast.LENGTH_SHORT).show();
+                        } else if (cardDAO.checkExistCard(id_card) > 0) {
+                            Toast.makeText(getContext(), "Phiếu mượn đã tồn tại", Toast.LENGTH_SHORT).show();
                         } else {
                             if(cardDAO.insertCard(new Card(id_card, idMember[0], bookDAO.getCateGoryBookById(idBook[0]), idBook[0], tvCardDate.getText().toString(), Double.parseDouble(tvCardPrice.getText().toString()), chkReturn.isChecked())) > 0) {
                                 cardList.clear();

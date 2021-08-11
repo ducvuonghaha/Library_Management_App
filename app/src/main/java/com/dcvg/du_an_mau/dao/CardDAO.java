@@ -134,4 +134,23 @@ public class CardDAO {
         }
         return total;
     }
+
+    public int checkExistCard(String idCard) {
+        int total = 0;
+        SQLiteDatabase sqLiteDatabase = sqlite.getWritableDatabase();
+        String sql = "SELECT COUNT(*) FROM CARD WHERE CARD_ID = '" + idCard +"'";
+
+        Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
+        if(cursor != null) {
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+                    total = cursor.getInt(0);
+                    cursor.moveToNext();
+                }
+                cursor.close();
+            }
+        }
+        return total;
+    }
 }

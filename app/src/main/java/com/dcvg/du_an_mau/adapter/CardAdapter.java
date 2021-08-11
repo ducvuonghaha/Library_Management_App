@@ -131,6 +131,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         idBook[0] = String.valueOf(nameAndIdBooks.get(spBookId.getSelectedItemPosition())[0]);
+                        tvCardPrice.setText(bookDAO.getPriceBookById(idBook[0]));
                     }
 
                     @Override
@@ -155,7 +156,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
                     @Override
                     public void onClick(View v) {
                         String id = holder.card.getCard_id();
-                       if(cardDAO.updateCard(new Card(id, idMember[0], bookDAO.getCateGoryBookById(idBook[0]), idBook[0], cardDate, Double.parseDouble(cardPrice), return_book[0]), id) > 0) {
+                       if(cardDAO.updateCard(new Card(id, idMember[0], bookDAO.getCateGoryBookById(idBook[0]), idBook[0], cardDate, Double.parseDouble(tvCardPrice.getText().toString()), return_book[0]), id) > 0) {
                            cardList.clear();
                            cardList = cardDAO.getAllCards();
                            notifyDataSetChanged();

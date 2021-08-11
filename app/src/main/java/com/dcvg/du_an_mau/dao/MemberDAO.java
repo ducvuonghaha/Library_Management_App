@@ -113,4 +113,23 @@ public class MemberDAO {
         }
         return memberName;
     }
+
+    public int checkExistMember(String id) {
+        int exist = 0;
+        String sql = "SELECT COUNT(*) FROM " + TABLE_MEMBER + " WHERE MEMBER_ID = '" + id + "'";
+        SQLiteDatabase sqLiteDatabase = sqlite.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
+        if (cursor != null) {
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+                    exist = cursor.getInt(0);
+                    cursor.moveToNext();
+                }
+                cursor.close();
+                sqLiteDatabase.close();
+            }
+        }
+        return exist;
+    }
 }

@@ -106,6 +106,8 @@ public class MemberFragment extends Fragment {
                             Toast.makeText(getContext(), "Vui lòng điền tên thành viên", Toast.LENGTH_SHORT).show();
                         } else if (memberBirth.isEmpty()) {
                             Toast.makeText(getContext(), "Vui lòng điền ngày sinh", Toast.LENGTH_SHORT).show();
+                        } else if (memberDAO.checkExistMember(memberId) > 0) {
+                            Toast.makeText(getContext(), "Thành viên đã tồn tại", Toast.LENGTH_SHORT).show();
                         } else {
                             try {
                                 Date checkDate = dateFormat.parse(memberBirth);

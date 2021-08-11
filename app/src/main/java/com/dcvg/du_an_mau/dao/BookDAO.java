@@ -150,4 +150,23 @@ public class BookDAO {
         }
         return price;
     }
+
+    public int checkExistBook(String id) {
+        int exist = 0;
+        SQLiteDatabase sqLiteDatabase = sqlite.getWritableDatabase();
+        String sql = "SELECT COUNT(*) FROM " + TABLE_BOOK + " WHERE BOOK_ID = '" + id + "'";
+        Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
+        if(cursor != null) {
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+                    exist = cursor.getInt(0);
+                    cursor.moveToNext();
+                }
+                cursor.close();
+                sqLiteDatabase.close();
+            }
+        }
+        return exist;
+    }
 }

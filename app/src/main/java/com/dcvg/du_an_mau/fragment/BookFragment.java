@@ -106,6 +106,8 @@ public class BookFragment extends Fragment {
                         String priceBook = edtBookPrice.getText().toString().trim();
                         if(idBook.isEmpty() || nameBook.isEmpty() || priceBook.isEmpty()) {
                             Toast.makeText(getContext(), "Vui lòng diền đầy đủ thông tin sách", Toast.LENGTH_SHORT).show();
+                        } else if (bookDAO.checkExistBook(idBook) > 0) {
+                            Toast.makeText(getContext(), "Mẫ sách đã tồn tại", Toast.LENGTH_SHORT).show();
                         } else {
                             try {
                                 if(bookDAO.insertBook(new Book(idBook, nameBook, Double.parseDouble(priceBook), idCategory[0])) > 0) {

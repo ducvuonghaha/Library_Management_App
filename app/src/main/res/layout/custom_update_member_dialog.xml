@@ -73,7 +73,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:hint="dd/MM/yyyy"
+            android:hint="dd-MM-yyyy"
             android:drawableRight="@drawable/ic_baseline_calendar_today_24"
             android:id="@+id/edtBirth"
             android:layout_width="0dp"

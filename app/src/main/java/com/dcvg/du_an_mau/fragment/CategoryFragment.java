@@ -81,6 +81,8 @@ public class CategoryFragment extends Fragment {
                         String nameCategory = tvNameCategory.getText().toString().trim();
                         if(idCategory.isEmpty() || nameCategory.isEmpty()) {
                             Toast.makeText(getContext(), "Vui lòng điền đầy đủ thông tin loại sách", Toast.LENGTH_SHORT).show();
+                        } else if (categoryDAO.checkExistCategory(idCategory) > 0) {
+                            Toast.makeText(getContext(), "Loại sách đã tồn tại", Toast.LENGTH_SHORT).show();
                         } else {
                             if (categoryDAO.insertCategory(new Category(idCategory, nameCategory)) > 0) {
                                 categoryList.clear();
