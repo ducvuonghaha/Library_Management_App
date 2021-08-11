@@ -11,7 +11,6 @@
         android:theme="@style/Theme.DU_AN_MAU">
         <activity android:name=".screen.HomeActivity">
 
-
         </activity>
         <activity android:name=".screen.LoginActivity" >
 

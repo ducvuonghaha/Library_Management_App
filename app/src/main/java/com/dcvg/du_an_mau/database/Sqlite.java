@@ -15,11 +15,13 @@ public class Sqlite extends SQLiteOpenHelper {
     public static final String COLUMN_LIBRARIAN_ID = "LIBRARIAN_ID";
     public static final String COLUMN_PASSWORD = "PASSWORD";
     public static final String COLUMN_LIBRARIAN_NAME = "LIBRARIAN_NAME";
+    public static final String COLUMN_LIBRARIAN_USERNAME = "LIBRARIAN_USERNAME";
     public static final String CREATE_TABLE_LIBRARIAN =
             "CREATE TABLE LIBRARIAN(" +
-                    COLUMN_LIBRARIAN_ID + " VARCHAR(15) PRIMARY KEY, " +
+                    COLUMN_LIBRARIAN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_PASSWORD + " VARCHAR(50), " +
-                    COLUMN_LIBRARIAN_NAME + " NVARCHAR(100))";
+                    COLUMN_LIBRARIAN_NAME + " NVARCHAR(100), " +
+                    COLUMN_LIBRARIAN_USERNAME + " VARCHAR(50))";
 
     public static final String TABLE_MEMBER = "MEMBER";
     public static final String COLUMN_MEMBER_ID = "MEMBER_ID";

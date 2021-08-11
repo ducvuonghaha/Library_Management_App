@@ -1,23 +1,23 @@
 package com.dcvg.du_an_mau.model;
 
 public class Librarian {
-    public String librarian_id;
+    public int librarian_id;
     public String password;
-    public String librarian_name;
+    public String librarian_name, username;
 
-    public String getLibrarian_id() {
+    public int getLibrarian_id() {
         return librarian_id;
     }
 
-    public void setLibrarian_id(String librarian_id) {
+    public void setLibrarian_id(int librarian_id) {
         this.librarian_id = librarian_id;
     }
 
-    public String getPasword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPasword(String pasword) {
+    public void setPassword(String pasword) {
         this.password = pasword;
     }
 
@@ -29,9 +29,17 @@ public class Librarian {
         this.librarian_name = librarian_name;
     }
 
-    public Librarian(String librarian_id, String password, String librarian_name) {
-        this.librarian_id = librarian_id;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Librarian(String password, String librarian_name, String username) {
         this.password = password;
         this.librarian_name = librarian_name;
+        this.username = username;
     }
 }

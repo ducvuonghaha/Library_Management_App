@@ -142,7 +142,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
                 tvCardId.setText(cardId);
                 tvCardDate.setText(cardDate);
                 tvCardPrice.setText(cardPrice);
-                chkReturn.setSelected(return_book[0]);
+                chkReturn.setChecked(return_book[0]);
 
                 chkReturn.setOnClickListener(new View.OnClickListener() {
                     @Override

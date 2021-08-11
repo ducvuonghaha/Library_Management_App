@@ -2,11 +2,14 @@ package com.dcvg.du_an_mau.screen;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.dcvg.du_an_mau.R;
 
 public class SplashActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +23,14 @@ public class SplashActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    Intent obj = new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(obj);
+                    SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("My Data", MODE_PRIVATE);
+                    String username = sharedPreferences.getString("username", "");
+                    String password = sharedPreferences.getString("password", "");
+                    if (username.isEmpty() && password.isEmpty()) {
+                        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                    } else {
+                        startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+                    }
                 }
             }
         };

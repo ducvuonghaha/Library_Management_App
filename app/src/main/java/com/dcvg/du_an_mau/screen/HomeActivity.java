@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import com.dcvg.du_an_mau.R;
+import com.dcvg.du_an_mau.fragment.AddUserFragment;
 import com.dcvg.du_an_mau.fragment.BookFragment;
 import com.dcvg.du_an_mau.fragment.CardFragment;
 import com.dcvg.du_an_mau.fragment.CategoryFragment;
+import com.dcvg.du_an_mau.fragment.ChangePasswordFragment;
+import com.dcvg.du_an_mau.fragment.MemberFragment;
 import com.dcvg.du_an_mau.fragment.RevenueFragment;
 import com.dcvg.du_an_mau.fragment.TopBookFragment;
 import com.dcvg.du_an_mau.model.Book;
@@ -66,8 +71,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, fragment).commit();
                 return true;
             case R.id.member_management:
-                System.out.println("ccc");
+                fragment = new MemberFragment();
                 drawerLayout.closeDrawers();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, fragment).commit();
                 return true;
             case R.id.top_book:
                 fragment = new TopBookFragment();
@@ -80,15 +86,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, fragment).commit();
                 return true;
             case R.id.add_user:
-                System.out.println("ccc");
+                fragment = new AddUserFragment();
                 drawerLayout.closeDrawers();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, fragment).commit();
                 return true;
             case R.id.change_password:
-                System.out.println("ccc");
+                fragment = new ChangePasswordFragment();
                 drawerLayout.closeDrawers();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, fragment).commit();
                 return true;
             case R.id.log_out:
-                finish();
+                SharedPreferences myPrefs = HomeActivity.this.getSharedPreferences("My Data", MODE_PRIVATE);
+                SharedPreferences.Editor editor = myPrefs.edit();
+                editor.putString("username", "");
+                editor.putString("password", "");
+                editor.commit();
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
                 return true;
         }
         return false;
@@ -98,5 +111,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.my_drawer_layout);
         navView = (NavigationView) findViewById(R.id.nav_view);
         fragmentLayout = (FrameLayout) findViewById(R.id.fragment_layout);
+    }
+
+    @Override
+    public void onBackPressed() {
+        return;
     }
 }

@@ -44,15 +44,15 @@ public class CategoryFragment extends Fragment {
         initView(view);
         categoryDAO = new CategoryDAO(getContext());
         categoryList = new ArrayList<>();
-
+//
 //        categoryList.add(new Category("CG1", "Tiểu thuyết"));
 //        categoryList.add(new Category("CG2", "Kỹ năng sống"));
 //        categoryList.add(new Category("CG3", "Kinh tế"));
-
+//
 //        for (Category category : categoryList) {
 //            categoryDAO.insertCategory(category);
 //        }
-//        categoryList.clear();
+        categoryList.clear();
 
         categoryList = categoryDAO.getAllCategory();
         categoryAdapter = new CategoryAdapter(getContext(), categoryList);
